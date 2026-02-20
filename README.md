@@ -43,6 +43,39 @@ python -m src.main
 - **測試**: pytest
 - **Lint**: ruff
 
+## 打包與發布
+
+### 一鍵發布
+
+執行 `release.bat` 會自動完成以下步驟：
+
+1. 遞增 `pyproject.toml` 中的 patch 版本號（如 `0.1.0` → `0.1.1`）
+2. 使用 PyInstaller 打包為單一 exe 檔案
+3. Git commit、建立版本 tag、push 到遠端
+4. 觸發 GitHub Actions 自動建立 Release 並附加 exe
+
+```bash
+release.bat
+```
+
+### 手動打包
+
+```bash
+pip install pyinstaller
+python build_exe.py
+```
+
+產出檔案：`dist/OCR-App.exe`（約 128MB，含 OCR 模型，可獨立執行）
+
+### 手動發布到 GitHub
+
+```bash
+git tag v1.0.0
+git push origin main --tags
+```
+
+推送 `v*` tag 後，GitHub Actions 會自動在 Windows 環境打包並建立 Release。
+
 ## 開發
 
 ```bash
