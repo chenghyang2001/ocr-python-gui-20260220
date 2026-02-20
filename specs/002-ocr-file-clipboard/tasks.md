@@ -23,10 +23,10 @@
 
 **Purpose**: 專案初始化、建立基本結構與開發環境
 
-- [ ] T001 Create project directory structure: `src/ocr_engine/`, `src/file_io/`, `src/gui/`, `tests/unit/`, `tests/integration/` with `__init__.py` files
-- [ ] T002 Create `requirements.txt` with dependencies: PySide6, rapidocr-onnxruntime, Pillow, pytest, ruff
-- [ ] T003 [P] Create `pyproject.toml` with project metadata, ruff configuration (line-length=100, target Python 3.11), and pytest settings
-- [ ] T004 [P] Create application entry point in `src/main.py` with minimal PySide6 QApplication bootstrap
+- [x] T001 Create project directory structure: `src/ocr_engine/`, `src/file_io/`, `src/gui/`, `tests/unit/`, `tests/integration/` with `__init__.py` files
+- [x] T002 Create `requirements.txt` with dependencies: PySide6, rapidocr-onnxruntime, Pillow, pytest, ruff
+- [x] T003 [P] Create `pyproject.toml` with project metadata, ruff configuration (line-length=100, target Python 3.11), and pytest settings
+- [x] T004 [P] Create application entry point in `src/main.py` with minimal PySide6 QApplication bootstrap
 
 ---
 
@@ -40,14 +40,14 @@
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T005 [P] Write unit tests for data models (ImageSource, RecognitionSettings, RecognitionResult) in `tests/unit/test_models.py` — test construction, validation rules, edge cases (empty languages, invalid confidence)
-- [ ] T006 [P] Write unit tests for OcrEngine in `tests/unit/test_ocr_engine.py` — test recognize() with a sample image, get_supported_languages(), invalid language handling, empty image handling
+- [x] T005 [P] Write unit tests for data models (ImageSource, RecognitionSettings, RecognitionResult) in `tests/unit/test_models.py` — test construction, validation rules, edge cases (empty languages, invalid confidence)
+- [x] T006 [P] Write unit tests for OcrEngine in `tests/unit/test_ocr_engine.py` — test recognize() with a sample image, get_supported_languages(), invalid language handling, empty image handling
 
 ### Implementation for Foundational
 
-- [ ] T007 Create shared data models (ImageSource, RecognitionSettings, RecognitionResult) in `src/models.py` per data-model.md — include SourceType enum (FILE, CLIPBOARD), validation logic
-- [ ] T008 Implement OcrEngine class in `src/ocr_engine/engine.py` per contracts/module-interfaces.md — wrap rapidocr-onnxruntime, implement recognize() and get_supported_languages(), map language codes to RapidOCR parameters
-- [ ] T009 Verify T005 and T006 tests pass (Green) after T007 and T008 implementation
+- [x] T007 Create shared data models (ImageSource, RecognitionSettings, RecognitionResult) in `src/models.py` per data-model.md — include SourceType enum (FILE, CLIPBOARD), validation logic
+- [x] T008 Implement OcrEngine class in `src/ocr_engine/engine.py` per contracts/module-interfaces.md — wrap rapidocr-onnxruntime, implement recognize() and get_supported_languages(), map language codes to RapidOCR parameters
+- [x] T009 Verify T005 and T006 tests pass (Green) after T007 and T008 implementation
 
 **Checkpoint**: Data models and OCR engine are functional and tested. User story implementation can now begin.
 
@@ -63,19 +63,19 @@
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T010 [P] [US1] Write unit tests for load_image_from_file() in `tests/unit/test_file_io.py` — test valid PNG/JPG/BMP/TIFF loading, invalid format rejection, missing file handling
-- [ ] T011 [P] [US1] Write unit tests for copy_text_to_clipboard() in `tests/unit/test_file_io.py` — test text copying to clipboard
+- [x] T010 [P] [US1] Write unit tests for load_image_from_file() in `tests/unit/test_file_io.py` — test valid PNG/JPG/BMP/TIFF loading, invalid format rejection, missing file handling
+- [x] T011 [P] [US1] Write unit tests for copy_text_to_clipboard() in `tests/unit/test_file_io.py` — test text copying to clipboard
 
 ### Implementation for User Story 1
 
-- [ ] T012 [US1] Implement load_image_from_file() in `src/file_io/image_loader.py` per contracts — validate file extension, load via Pillow, return ImageSource(source_type=FILE)
-- [ ] T013 [US1] Implement copy_text_to_clipboard() in `src/file_io/text_exporter.py` per contracts — use QClipboard.setText()
-- [ ] T014 [US1] Build MainWindow GUI layout in `src/gui/main_window.py` — image preview area (QLabel), language selector (QCheckBox group for 繁中/簡中/英文), action buttons (載入圖片/辨識/複製到剪貼簿), result text area (QTextEdit, read-only but selectable)
-- [ ] T015 [US1] Wire "載入圖片" button in `src/gui/main_window.py` — open QFileDialog with filter for PNG/JPG/BMP/TIFF, call load_image_from_file(), display image preview with QPixmap.scaled(KeepAspectRatio)
-- [ ] T016 [US1] Wire "辨識" button with background thread in `src/gui/main_window.py` — create QThread worker calling OcrEngine.recognize(), emit signal on completion, disable button during processing, show progress indicator (QProgressBar or busy cursor)
-- [ ] T017 [US1] Wire "複製到剪貼簿" button and display result in `src/gui/main_window.py` — populate QTextEdit with result text, enable copy button, call copy_text_to_clipboard() on click, show success tooltip. Handle "未偵測到文字" case.
-- [ ] T018 [US1] Add error handling for US1 in `src/gui/main_window.py` — show QMessageBox for unsupported format, file not found, OCR failure. Disable "辨識" button when no image loaded.
-- [ ] T019 [US1] Verify T010 and T011 tests pass (Green) after implementation
+- [x] T012 [US1] Implement load_image_from_file() in `src/file_io/image_loader.py` per contracts — validate file extension, load via Pillow, return ImageSource(source_type=FILE)
+- [x] T013 [US1] Implement copy_text_to_clipboard() in `src/file_io/text_exporter.py` per contracts — use QClipboard.setText()
+- [x] T014 [US1] Build MainWindow GUI layout in `src/gui/main_window.py` — image preview area (QLabel), language selector (QCheckBox group for 繁中/簡中/英文), action buttons (載入圖片/辨識/複製到剪貼簿), result text area (QTextEdit, read-only but selectable)
+- [x] T015 [US1] Wire "載入圖片" button in `src/gui/main_window.py` — open QFileDialog with filter for PNG/JPG/BMP/TIFF, call load_image_from_file(), display image preview with QPixmap.scaled(KeepAspectRatio)
+- [x] T016 [US1] Wire "辨識" button with background thread in `src/gui/main_window.py` — create QThread worker calling OcrEngine.recognize(), emit signal on completion, disable button during processing, show progress indicator (QProgressBar or busy cursor)
+- [x] T017 [US1] Wire "複製到剪貼簿" button and display result in `src/gui/main_window.py` — populate QTextEdit with result text, enable copy button, call copy_text_to_clipboard() on click, show success tooltip. Handle "未偵測到文字" case.
+- [x] T018 [US1] Add error handling for US1 in `src/gui/main_window.py` — show QMessageBox for unsupported format, file not found, OCR failure. Disable "辨識" button when no image loaded.
+- [x] T019 [US1] Verify T010 and T011 tests pass (Green) after implementation
 
 **Checkpoint**: 使用者可從檔案載入圖片、辨識文字、複製到剪貼簿。MVP 功能完成。
 
@@ -91,14 +91,14 @@
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T020 [P] [US2] Write unit tests for load_image_from_clipboard() in `tests/unit/test_file_io.py` — test successful clipboard image read, test clipboard-no-image error case
+- [x] T020 [P] [US2] Write unit tests for load_image_from_clipboard() in `tests/unit/test_file_io.py` — test successful clipboard image read, test clipboard-no-image error case
 
 ### Implementation for User Story 2
 
-- [ ] T021 [US2] Implement load_image_from_clipboard() in `src/file_io/image_loader.py` per contracts — use QApplication.clipboard().image() to get QImage, convert to PIL Image, return ImageSource(source_type=CLIPBOARD). Raise ValueError if clipboard has no image.
-- [ ] T022 [US2] Add "從剪貼簿貼上" button to MainWindow in `src/gui/main_window.py` — call load_image_from_clipboard(), display image preview. Show "剪貼簿中沒有圖片" message if no image found.
-- [ ] T023 [US2] Add Ctrl+V keyboard shortcut in `src/gui/main_window.py` — bind QShortcut(QKeySequence.Paste) to same handler as "從剪貼簿貼上" button
-- [ ] T024 [US2] Verify T020 tests pass (Green) after implementation
+- [x] T021 [US2] Implement load_image_from_clipboard() in `src/file_io/image_loader.py` per contracts — use QApplication.clipboard().image() to get QImage, convert to PIL Image, return ImageSource(source_type=CLIPBOARD). Raise ValueError if clipboard has no image.
+- [x] T022 [US2] Add "從剪貼簿貼上" button to MainWindow in `src/gui/main_window.py` — call load_image_from_clipboard(), display image preview. Show "剪貼簿中沒有圖片" message if no image found.
+- [x] T023 [US2] Add Ctrl+V keyboard shortcut in `src/gui/main_window.py` — bind QShortcut(QKeySequence.Paste) to same handler as "從剪貼簿貼上" button
+- [x] T024 [US2] Verify T020 tests pass (Green) after implementation
 
 **Checkpoint**: 使用者可從檔案或剪貼簿兩種方式載入圖片並辨識。兩個 P1 story 皆完成。
 
@@ -114,14 +114,14 @@
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T025 [P] [US3] Write unit tests for export_text_to_file() in `tests/unit/test_file_io.py` — test UTF-8 encoding output, test permission error handling, verify file content matches input text
+- [x] T025 [P] [US3] Write unit tests for export_text_to_file() in `tests/unit/test_file_io.py` — test UTF-8 encoding output, test permission error handling, verify file content matches input text
 
 ### Implementation for User Story 3
 
-- [ ] T026 [US3] Implement export_text_to_file() in `src/file_io/text_exporter.py` per contracts — write text with UTF-8 encoding, handle PermissionError
-- [ ] T027 [US3] Add "匯出" button to MainWindow in `src/gui/main_window.py` — open QFileDialog.getSaveFileName with .txt filter, default filename based on source (original filename for FILE source, "ocr-result-YYYYMMDD-HHMMSS.txt" for CLIPBOARD source), call export_text_to_file()
-- [ ] T028 [US3] Add error handling for export in `src/gui/main_window.py` — show QMessageBox on permission error, allow re-selecting path. Disable "匯出" button when no result available.
-- [ ] T029 [US3] Verify T025 tests pass (Green) after implementation
+- [x] T026 [US3] Implement export_text_to_file() in `src/file_io/text_exporter.py` per contracts — write text with UTF-8 encoding, handle PermissionError
+- [x] T027 [US3] Add "匯出" button to MainWindow in `src/gui/main_window.py` — open QFileDialog.getSaveFileName with .txt filter, default filename based on source (original filename for FILE source, "ocr-result-YYYYMMDD-HHMMSS.txt" for CLIPBOARD source), call export_text_to_file()
+- [x] T028 [US3] Add error handling for export in `src/gui/main_window.py` — show QMessageBox on permission error, allow re-selecting path. Disable "匯出" button when no result available.
+- [x] T029 [US3] Verify T025 tests pass (Green) after implementation
 
 **Checkpoint**: 所有 3 個 User Story 皆完成，應用功能完整。
 
@@ -133,9 +133,9 @@
 
 - [ ] T030 [P] Write integration test for full file→OCR→copy workflow in `tests/integration/test_gui_workflow.py`
 - [ ] T031 [P] Write integration test for full clipboard→OCR→export workflow in `tests/integration/test_gui_workflow.py`
-- [ ] T032 Run ruff check and format on `src/` and `tests/`, fix any violations
-- [ ] T033 Run quickstart.md validation — verify all steps from quickstart.md work end-to-end
-- [ ] T034 Update `README.md` with project description, installation instructions, and usage guide
+- [x] T032 Run ruff check and format on `src/` and `tests/`, fix any violations
+- [x] T033 Run quickstart.md validation — verify all steps from quickstart.md work end-to-end
+- [x] T034 Update `README.md` with project description, installation instructions, and usage guide
 
 ---
 
