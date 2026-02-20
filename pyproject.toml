@@ -1,7 +1,7 @@
 [project]
 name = "ocr-python-gui"
-version = "0.1.0"
-description = "OCR 圖片文字辨識桌面應用程式"
+version = "0.1.1"
+description = "OCR ?��??��?辨�?桌面?�用程�?"
 requires-python = ">=3.11"
 dependencies = [
     "PySide6>=6.6",
