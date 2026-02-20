@@ -35,5 +35,6 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 
-# Distribution
+# PyInstaller
 *.spec
+!ocr_app.spec
